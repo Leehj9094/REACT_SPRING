@@ -6,7 +6,7 @@ const List  = ()=>{
     const navigate = useNavigate();
     const [fileList, setFileList] = useState([])
     
-    useEffect(()=>{
+    useEffect(()=>{             // userEffect 쓸 때 주의 react할 때 비동기는 기다려주지 않기 때문에 안에 다 되고 될 수 있게 
         const reqServer = async()=>{
             try{
                 const resp = await axios.get("http://localhost:8080/upload/list");         
@@ -29,7 +29,7 @@ const List  = ()=>{
         console.log('filePath',filePath);
 
         try{
-            const reqFunction = async ()=>{
+            const reqFunction = async ()=>{             // async + await 한 세트
                 const resp =  await axios.get(
                     `http://localhost:8080/download`,
                     {params:{"filePath":filePath},responseType:'blob',headers:{"Content-Type":"application/json"},},

@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 @RequestMapping("/kakao")
 @CrossOrigin(origins = {"http://127.0.0.1:3000","http://localhost:3000"})
 public class KakaoRestfulAPIController {
-    private String CLIENT_ID="87166502a8aeaf54e9067d26a41e2b67";
+    private String CLIENT_ID="9ea1d00a8e7e9d4eac87cc3b5e80e4ac";
     private String REDIRECT_URI="http://localhost:8080/kakao/callback";     //SpringServer 경로로 Redirect
     private String LOGOUT_REDIRECT_URI="http://localhost:3000/api/kakaoLogin";  //React경로로
 
@@ -52,6 +52,7 @@ public class KakaoRestfulAPIController {
         params.add("client_id",CLIENT_ID);
         params.add("redirect_uri",REDIRECT_URI);
         params.add("code",code);
+        params.add("client_secret", "tnP44K0H9oISfe69jKzTEnglNIWZxQJn");
 
         //ENTITY(HEADER + PARAM)
         HttpEntity<MultiValueMap<String,String>> entity = new HttpEntity(params,headers);
